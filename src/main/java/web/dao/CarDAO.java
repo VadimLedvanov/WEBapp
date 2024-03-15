@@ -1,12 +1,13 @@
 package web.dao;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import web.model.Car;
 
 import java.util.Arrays;
 import java.util.List;
 
-@Component
+@Repository
 public class CarDAO {
     List<Car> cars = Arrays.asList(
             new Car(1, "bmw", 2024),
@@ -23,8 +24,6 @@ public class CarDAO {
         if (count >= cars.size())
             return cars;
         else return cars.subList(0, count);
-
-
     }
 
 
