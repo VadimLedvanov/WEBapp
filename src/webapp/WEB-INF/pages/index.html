@@ -6,10 +6,21 @@
     <title></title>
 </head>
 <body>
-<div>
-    <th:block th:each="msg : ${messages}">
-        <h1 th:text="${msg}"></h1>
-    </th:block>
-</div>
+    <h1>Все пользователи</h1>
+    <table border="1">
+        <th>ID</th>
+        <th>NAME</th>
+        <th>AGE</th>
+
+        <tr th:each="user : ${users}">
+            <td th:utext="${user.getId()}"></td>
+            <td><a th:href="@{/user(id=${user.getId()})}" th:utext="${user.getName()}"></a></td>
+            <td th:utext="${user.getAge()}"></td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <a href="/new">Добавить пользователя</a>
 </body>
 </html>
