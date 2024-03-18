@@ -25,8 +25,12 @@ import java.util.Properties;
 @PropertySource(value = "classpath:db.properties")
 public class DataBaseConfig {
 
+    private final Environment env;
+
     @Autowired
-    private Environment env;
+    public DataBaseConfig(Environment env) {
+        this.env = env;
+    }
 
     @Bean
     public DataSource getDataSource() {
